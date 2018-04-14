@@ -1,0 +1,38 @@
+#nav .backArrow {
+    width: 25px;
+    height: 20px;
+    margin: auto;
+    cursor: pointer;
+    position: absolute;
+    left: 3%;
+    justify-self: center;
+
+}
+
+#nav .backArrow span {
+    background-color: black;
+    position: absolute;
+    border-radius: 1px;
+    transition: .3s cubic-bezier(.8, .5, .2, 1.4);
+    width: 100%;
+    height: 4px;
+}
+
+#nav .backArrow span:nth-child(1) {
+    transform: rotate(-45deg) scaleX(0.7) translateY(4px);
+}
+
+#nav .backArrow span:nth-child(2) {
+    transform: translateX(-9px) scaleX(0);
+}
+
+#nav .backArrow span:nth-child(3) {
+    transform: rotate(45deg) scaleX(0.7) translateY(-4px);
+}
+
+#nav .backArrow {
+    display: none;
+    text-align: center;
+    align-self: center;
+    cursor: pointer;
+}

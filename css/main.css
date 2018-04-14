@@ -156,7 +156,7 @@ html {
 #nav .icon span {
     background-color: #FFF;
     position: absolute;
-    border-radius: 2px;
+    border-radius: 1px;
     transition: .3s cubic-bezier(.8, .5, .2, 1.4);
     width: 100%;
     height: 4px;
@@ -170,6 +170,7 @@ html {
 #nav .icon span:nth-child(2) {
     top: 8px;
     left: 0;
+    width: 70%;
 }
 
 #nav .icon span:nth-child(3) {
@@ -178,19 +179,71 @@ html {
 }
 
 .click-icon span:nth-child(1) {
-    transform: rotate(45deg) scaleX(0.7) translateY(4px);
+    transform: rotate(45deg) translateY(11px);
 }
 
 .click-icon span:nth-child(2) {
-    transform: translateX(-9px) scaleX(0.8);
+    transform: scale(0);
+    visibility: hidden;
+    opacity: 0;
+    transition: .2s ease-in-out;
 }
 
 .click-icon span:nth-child(3) {
-    transform: rotate(-45deg) scaleX(0.7) translateY(-4px);
+    transform: rotate(-45deg) translateY(-11px);
+}
+
+#nav .click-icon {
+    margin-left: 5px;
+}
+
+#nav .click-icon span {
+    background-color: var(--accent);
+    transition: .2s ease-in-out;
 }
 
 #nav .icon {
     display: none;
+    text-align: center;
+    align-self: center;
+    cursor: pointer;
+}
+
+#nav .backArrow {
+    width: 25px;
+    height: 20px;
+    margin: 5px auto auto auto;
+    cursor: pointer;
+    position: absolute;
+    left: 0.5%;
+    justify-self: center;
+}
+
+#nav .backArrow span {
+    background-color: white;
+    position: absolute;
+    border-radius: 1px;
+    transition: .3s cubic-bezier(.8, .5, .2, 1.4);
+    width: 100%;
+    height: 4px;
+}
+
+#nav .backArrow span:nth-child(1) {
+    transform: rotate(45deg) scaleX(0.7) translateY(4px);
+    bottom: 12px;
+}
+
+#nav .backArrow span:nth-child(2) {
+    transform: translateX(-9px) scaleX(0);
+}
+
+#nav .backArrow span:nth-child(3) {
+    transform: rotate(-45deg) scaleX(0.7) translateY(-4px);
+    top: 0;
+}
+
+#nav .backArrow {
+    display: inline-block;
     text-align: center;
     align-self: center;
     cursor: pointer;
@@ -231,7 +284,7 @@ html {
     width: fit-content;
 }
 
-.sideNav .sideNavItem a:before {
+.sideNav .sideNavItem:before {
     content: '';
     position: absolute;
     bottom: -7px;
@@ -242,11 +295,11 @@ html {
     z-index: 50;
 }
 
-.sideNav .sideNavItem a:hover:before {
+.sideNav .sideNavItem:hover:before {
     width: 100%;
 }
 
-.sideNav .sideNavItem a.active:before {
+.sideNav .sideNavItem.active:before {
     width: 100%;
 }
 
@@ -339,6 +392,29 @@ html {
     border-color: var(--accent);
 }
 
+.form > div > a > button {
+    padding: 5px 20px 5px 20px;
+    width: 200px;
+    height: 40px;
+    font-family: var(--textFont);
+    background-color: transparent;
+    color: black;
+    border: 2px solid black;
+    border-radius: 3px;
+    transition: .2s ease-in-out;
+    font-size: 1rem;
+    cursor: pointer;
+    margin: auto auto 25px auto;
+    font-weight: 600;
+}
+
+.form > div > a > button:hover {
+    transition: .2s ease-in-out;
+    background-color: var(--accent);
+    border-color: var(--accent);
+    color: white;
+}
+
 /* ABOUT PAGE */
 
 #title {
@@ -392,19 +468,28 @@ html {
     text-align: left;
     align-items: center;
     overflow: visible;
-    margin-bottom: 70px;
 }
 
 .footer {
     position: relative;
-    height: 170px;
+    height: 200px;
     width: 100vw;
-    background-color: var(--primary);
+    background-color: transparent;
     color: white;
-    margin-top: -110px;
     display: flex;
     flex-direction: column;
     justify-content: center;
+}
+
+.member {
+    margin-top: -138px;
+    font-family: var(--textFont);
+}
+
+.teamContent {
+    margin-top: 20px;
+    font-family: var(--textFont);
+    white-space: pre-line;
 }
 
 .sectionNumber {
@@ -414,6 +499,24 @@ html {
     opacity: 0;
     margin-top: -5px;
     margin-left: -30px;
+}
+
+.sectionImage img {
+    font-family: var(--textFont);
+    font-size: 6rem;
+    color: var(--primary);
+    margin-top: -5px;
+    margin-left: -30px;
+    height: 125px;
+    width: 125px;
+}
+
+.sectionImage {
+    font-family: var(--textFont);
+    font-size: 6rem;
+    color: var(--primary);
+    margin-top: 0;
+    margin-left: -135px;
 }
 
 .sectionHeading {
@@ -438,10 +541,10 @@ html {
     justify-content: center;
     align-items: flex-start;
     width: 35%;
-    left: 5%;
+    left: 0;
     color: white;
     justify-self: center;
-    margin-top: 150px;
+    margin-top: 300px;
 }
 
 .content2 {
@@ -452,22 +555,232 @@ html {
     justify-content: center;
     align-items: flex-start;
     width: 35%;
-    left: 5%;
+    left: 0%;
     color: black;
     justify-self: center;
 }
 
-.content3 {
+.teamText1 {
+    left: 10%;
+    top: -5%;
+    width: 30%;
+}
+
+.teamText2 {
+    left: 10%;
+    width: 30%;
+}
+
+/* LOGIN PAGE */
+
+canvas {
+    width: 110vw;
+    height: 110vh;
+    overflow: visible;
+    margin: -10px;
+    padding: 0;
+    opacity: 01;
+    z-index: 2;
+}
+
+.wrap {
+    padding: 0;
+    overflow: visible;
     position: relative;
-    align-self: center;
+    width: 100%;
+    height: 100%;
+    background: white;
+    margin: -30px auto auto auto;
+    z-index: 2;
+}
+
+#loginHero {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    z-index: 50;
+    top: 0;
+}
+
+.loginSection {
+    width: 70%;
+    margin: auto;
+    height: 50%;
+    z-index: 1;
+    padding: 10px;
+    position: relative;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    background-color: var(--primary);
+    box-shadow: 25px 25px 50px rgba(0, 0, 0, 0.2);
+    border-radius: 5px;
+}
+
+.left {
+    height: 100%;
+    width: 100%;
+    grid-column: 1 / 2;
+    z-index: 50;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: flex-start;
-    width: 50%;
-    left: 15%;
+}
+
+.left #heading {
+    font-size: 2.3rem;
+    font-family: var(--mainFont);
+    margin: -60px 30px 10px 30px;
     color: white;
-    margin-top: 500px;
+    border-left: 3px solid var(--accent);
+    padding-left: 15px;
+}
+
+.left #subHeading {
+    font-size: 1rem;
+    font-family: var(--textFont);
+    margin: 0 30px 10px 30px;
+    color: white;
+}
+
+.right {
+    background-color: white;
+    height: 80%;
+    width: 85.5%;
+    grid-column: 2 / 3;
+    z-index: 999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    justify-self: center;
+    align-self: center;
+    position: center;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+
+/* FORM STYLES */
+
+.form {
+    width: 100%;
+    align-self: center;
+    justify-self: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    padding: 0;
+    margin: 0;
+    font-size: 1rem;
+    font-family: var(--textFont);
+}
+
+.form > div  {
+    background-color: transparent;
+    width: 90%;
+    display: flex;
+    align-self: center;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+form {
+    width: 100%;
+    align-self: center;
+    justify-self: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    padding: 0;
+    margin: 0;
+    font-size: 1rem;
+    font-family: var(--textFont);
+}
+
+form > div  {
+    background-color: transparent;
+    width: 90%;
+    display: flex;
+    align-self: center;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+form > div > input[type="text"],
+form > div > input[type="email"],
+form > div > input[type="password"] {
+    width: inherit;
+    outline: none;
+    padding: 10px 5px 10px 5px;
+    margin-bottom: 25px;
+    background-color: transparent;
+    border: 1px solid grey;
+    border-radius: 3px;
+    box-shadow: none;
+    transition: all .2s ease-out;
+    font-size: 1rem;
+    font-family: var(--textFont);
+}
+
+form > div > input[type="text"]:focus,
+form > div > input[type="email"]:focus,
+form > div > input[type="password"]:focus {
+    outline: 0;
+    background-color: transparent;
+    border-radius: 3px;
+    border: 2px solid black;
+    transition: all .2s ease-out;
+}
+
+form > div > input[type="text"]:valid,
+form > div > input[type="email"]:valid,
+form > div > input[type="password"]:valid {
+    border: 2px solid #4CAF50;
+    transition: all .2s ease-out;
+}
+
+form > div > input[type="text"]:invalid:not(:focus):not(:placeholder-shown),
+form > div > input[type="email"]:invalid:not(:focus):not(:placeholder-shown),
+form > div > input[type="password"]:invalid:not(:focus):not(:placeholder-shown) {
+    border: 2px solid #F44336;
+    transition: all .2s ease-out;
+}
+
+form > div > input[type="text"]:invalid:focus:not(:placeholder-shown),
+form > div > input[type="email"]:invalid:focus:not(:placeholder-shown),
+form > div > input[type="password"]:invalid:focus:not(:placeholder-shown) {
+    border: 2px solid #F44336;
+    transition: all .2s ease-out;
+}
+
+form > div > input[type="submit"] {
+    width: inherit;
+    outline: none;
+    color: grey;
+    padding: 10px 5px 10px 5px;
+    margin: 0;
+    background-color: transparent;
+    border: 1px solid grey;
+    border-radius: 3px;
+    box-shadow: none;
+    transition: all .2s ease-out;
+    font-size: 1rem;
+    font-family: var(--textFont);
+}
+
+form > div > input[type="submit"]:hover {
+    color: white;
+    border-color: var(--accent);
+    background-color: var(--accent);
 }
 
 /* MEDIA QUERIES */
@@ -665,6 +978,15 @@ html {
     .content1, .content2 {
         width: 40%;
     }
+
+    .teamText1 {
+        left: 15%;
+        margin-top: 220px;
+    }
+
+    .teamText2 {
+        left: 17%;
+    }
 }
 
 @media screen and (max-width: 1000px) {
@@ -687,6 +1009,20 @@ html {
     .content2 {
         left: 0;
         margin-right: 25px;
+    }
+
+    .teamText1 {
+        left: 50%;
+        top: -8%;
+    }
+
+    .teamText2 {
+        left: 1%;
+        bottom: -3%;
+    }
+
+    .footer {
+
     }
 }
 
@@ -725,6 +1061,17 @@ html {
         margin-top: 210px;
         left: 23%;
     }
+
+    .teamText1 {
+        justify-self: center;
+        top: -8%;
+        left: 58%;
+    }
+
+    .teamText2 {
+        justify-self: center;
+        bottom: -3%;
+    }
 }
 
 @media screen and (max-width: 735px) {
@@ -740,6 +1087,17 @@ html {
     .content2 {
         margin-bottom: -120px;
         margin-right: 230px;
+    }
+
+    .teamText1 {
+        justify-self: center;
+        top: -4%;
+        left: 63%;
+    }
+
+    .teamText2 {
+        justify-self: center;
+        bottom: -3%;
     }
 }
 
@@ -757,6 +1115,25 @@ html {
         margin-bottom: -110px;
         margin-right: 330px;
     }
+
+    .teamText1 {
+        justify-self: center;
+        top: -1%;
+        left: 82%;
+    }
+
+    .teamText2 {
+        left: 17%;
+        bottom: -3%;
+    }
+
+    .sectionHeading {
+        font-size: 2.1rem;
+    }
+
+    .member {
+        margin-top: -151px;
+    }
 }
 
 @media screen and (max-width: 610px) {
@@ -773,6 +1150,17 @@ html {
         margin-bottom: -110px;
         margin-right: 520px;
     }
+
+    .teamText1 {
+        justify-self: center;
+        top: -2%;
+        left: 115%;
+    }
+
+    .teamText2 {
+        left: 33%;
+        bottom: 0;
+    }
 }
 
 @media screen and (max-width: 580px) {
@@ -788,6 +1176,36 @@ html {
     .content2 {
         margin-bottom: -110px;
         margin-right: 520px;
+    }
+
+    .teamText1 {
+        justify-self: center;
+        top: 5%;
+        text-align: center;
+        align-items: center;
+    }
+
+    .teamText2 {
+        left: 5%;
+        text-align: center;
+        align-items: center;
+        bottom: -3%;
+    }
+
+    .sectionImage {
+        margin-top: -250px;
+        margin-left: 0;
+        margin-right: -30px;
+        align-self: center;
+        padding: 0;
+    }
+
+    .member {
+        margin-top: -33px;
+    }
+
+    .teamHeading {
+        margin-top: -100px;
     }
 }
 

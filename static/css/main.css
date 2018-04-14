@@ -27,11 +27,22 @@ html, body {
     padding: 0;
 }
 
+#main {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: white;
+
+}
+
 html {
     height: 100%;
     min-height: 667px;
     min-width: 400px;
     overflow-x: hidden;
+    background-color: var(--primary);
 }
 
 .filler {
@@ -350,12 +361,13 @@ html {
     min-width: 400px;
     width: 100vw;
     margin-top: -70px;
-    background: url("/media/hero.svg") no-repeat fixed center;
+    background: url("/static/media/hero.svg") no-repeat fixed center;
     background-size: cover;
     color: white;
     display: flex;
     flex-direction: column;
     justify-content: center;
+    background-color: white;
 }
 
 #hero #heroHeading {
@@ -428,7 +440,7 @@ html {
     width: 100%;
     font-size: 2.5rem;
     font-family: var(--mainFont);
-    background: url("/media/navFix.svg") no-repeat center;
+    background: url("/static/media/navFix.svg") no-repeat center;
     background-size: cover;
     color: black;
 }
@@ -443,7 +455,7 @@ html {
     position: relative;
     height: 157vh;
     width: 99vw;
-    background: url("/media/angle.svg") no-repeat center;
+    background: url("/static/media/angle.svg") no-repeat center;
     background-size: cover;
     color: black;
     display: flex;
@@ -459,7 +471,7 @@ html {
     position: relative;
     height: 157vh;
     width: 99vw;
-    background: url("/media/angle.svg") no-repeat center;
+    background: url("/static/media/angle.svg") no-repeat center;
     background-size: cover;
     color: black;
     display: flex;
@@ -555,7 +567,7 @@ html {
     justify-content: center;
     align-items: flex-start;
     width: 35%;
-    left: 0%;
+    left: 0;
     color: black;
     justify-self: center;
 }
@@ -580,7 +592,7 @@ canvas {
     margin: -10px;
     padding: 0;
     opacity: 01;
-    z-index: 2;
+    z-index: 49;
 }
 
 .wrap {
@@ -813,7 +825,7 @@ form > div > input[type="submit"]:hover {
     }
 
     #title {
-        background: none;
+        background-color: white;
     }
 
     .sideNav {
@@ -825,7 +837,7 @@ form > div > input[type="submit"]:hover {
 
 @media screen and (max-width: 610px) {
     #hero {
-        background: url("/media/heroMobile.svg") no-repeat fixed center;
+        background: url("/static/media/heroMobile.svg") no-repeat fixed center;
         background-size: cover;
         transition: .2s ease-in-out;
         text-align: center;
@@ -1268,6 +1280,98 @@ form > div > input[type="submit"]:hover {
         min-width: 81%;
     }
 }
+
+
+/* KEYFRAMES */
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translate3d(0, 100%, 0);
+  }
+
+  100% {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes fadeInDown {
+  0% {
+    opacity: 0;
+    transform: translate3d(0, -100%, 0);
+  }
+
+  100% {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes fadeInRight {
+  0% {
+    opacity: 0;
+    transform: translate3d(100%, 0, 0);
+  }
+
+  100% {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes fadeInLeft {
+  0% {
+    opacity: 0;
+    transform: translate3d(-100%, 0, 0);
+  }
+
+  100% {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.m-scene .scene_element {
+  animation-duration: 1s;
+  transition-timing-function: ease-in;
+  animation-fill-mode: both;
+}
+
+.m-scene .scene_element--fadein {
+  animation-name: fadeIn;
+}
+
+.m-scene .scene_element--fadeinup {
+  animation-name: fadeInUp;
+}
+
+.m-scene .scene_element--fadeindown {
+    animation-name: fadeInDown;
+}
+
+.scene_element--fadeinright {
+    animation-name: fadeInRight;
+}
+
+.scene_element--fadeinleft {
+    animation-name: fadeInLeft;
+}
+
+.scene_element .is-exiting {
+  animation-direction: reverse;
+}
+
 
 
 

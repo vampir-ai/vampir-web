@@ -7,6 +7,8 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="../static/css/main.css">
         <link rel="stylesheet" href="../static/css/homeNavQueries.css">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.bundle.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
         <title>Home Page | Vamp&iuml;r</title>
     </head>
 </head>
@@ -36,7 +38,65 @@
 </header>
 <div id="hero">
 
+    <canvas id="myChart" style="width: 100vw; height: 100vh"></canvas>
 </div>
+
+<script>
+    var ctx = document.getElementById("myChart").getContext('2d');
+
+    function getFormData() {
+        return  {
+            message: localStorage.getItem("message"),
+            hour: 8
+        }
+    }
+
+    function post() {
+        $.post("/api/predict/", JSON.stringify(getFormData()), function (data, status) {
+            console.log(data["predictions"]);
+            loadPage(data["predictions"]);
+        }).fail(function(data) {
+            if (data.status === 400) {
+            } else {
+            }
+        })
+    }
+
+    function loadPage(datapoints) {
+        var myChart = new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: [0, 5, 10, 15],
+                datasets: [{
+                    backgroundColor: "#ec2024",
+                    borderColor: "#ec2024",
+                    data: datapoints,
+                    fill: false
+                }]
+            },
+            options: {
+                scaleShowVerticalLines: false,
+                responsive: true,
+                scales: {
+                    xAxes: [{
+                        gridLines: {
+                            drawOnChartArea: false
+                        }
+                    }],
+                    yAxes: [{
+                        gridLines: {
+                            drawOnChartArea: false
+                        }
+                    }]
+                }
+
+            }
+        });
+    }
+
+    post();
+
+</script>
 
 <script type="text/javascript" src="../static/js/main.js"></script>
 </body>

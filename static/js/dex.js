@@ -12,9 +12,9 @@ $(document).ready(function () {
     }
 
     function post() {
-        $.post("/api-token-auth/", JSON.stringify(getFormData()), function (data, status) {
-            console.log(status);
-            window.location.replace("/link-services/")
+        $.post("/api/encrypt/", JSON.stringify(getFormData()), function (data, status) {
+            localStorage.setItem("message", data["message"]);
+            window.location.replace("/graph/");
         }).fail(function(data) {
             if (data.status === 400) {
             } else {
@@ -22,7 +22,7 @@ $(document).ready(function () {
         })
     }
 
-    $('#loginForm').submit(function () {
+    $('#linkAccountForm').submit(function () {
         post();
         return false
     });

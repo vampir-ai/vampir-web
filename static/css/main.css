@@ -350,7 +350,7 @@ html {
     min-width: 400px;
     width: 100vw;
     margin-top: -70px;
-    background: url("/media/hero.svg") no-repeat fixed center;
+    background: url("../media/hero.svg") no-repeat fixed center;
     background-size: cover;
     color: white;
     display: flex;
@@ -428,7 +428,7 @@ html {
     width: 100%;
     font-size: 2.5rem;
     font-family: var(--mainFont);
-    background: url("/media/navFix.svg") no-repeat center;
+    background: url("../media/navFix.svg") no-repeat center;
     background-size: cover;
     color: black;
 }
@@ -443,7 +443,7 @@ html {
     position: relative;
     height: 157vh;
     width: 99vw;
-    background: url("/media/angle.svg") no-repeat center;
+    background: url("../media/angle.svg") no-repeat center;
     background-size: cover;
     color: black;
     display: flex;
@@ -459,7 +459,7 @@ html {
     position: relative;
     height: 157vh;
     width: 99vw;
-    background: url("/media/angle.svg") no-repeat center;
+    background: url("../media/angle.svg") no-repeat center;
     background-size: cover;
     color: black;
     display: flex;
@@ -825,7 +825,7 @@ form > div > input[type="submit"]:hover {
 
 @media screen and (max-width: 610px) {
     #hero {
-        background: url("/media/heroMobile.svg") no-repeat fixed center;
+        background: url("../media/heroMobile.svg") no-repeat fixed center;
         background-size: cover;
         transition: .2s ease-in-out;
         text-align: center;

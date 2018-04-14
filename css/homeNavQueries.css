@@ -1,0 +1,19 @@
+/* NavItem Queries */
+
+@media screen and (max-width: 1050px) {
+    #nav .navItem #home{
+        color: var(--secondary);
+    }
+}
+
+@media screen and (max-width: 860px) {
+    #nav .navItem #about {
+        color: var(--secondary);
+    }
+}
+
+@media screen and (max-width: 673px) {
+    #nav .navItem #team {
+        color: var(--secondary);
+    }
+}
